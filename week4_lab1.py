@@ -114,3 +114,7 @@ def chat(user_input: str, history):
 
 
 gr.ChatInterface(fn=chat).launch()
+
+# If you notice, we did not use any LLMs. This is to tell you that
+# LangGraph is all about python functions - it does not need to 
+# involve any LLMs.
