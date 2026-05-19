@@ -16,20 +16,13 @@ load_dotenv(override=True)
 
 serper = GoogleSerperAPIWrapper()
 
-# user_query = "What was the stock price of ORCL on 12th/December/1989?"
-# user_query = "What was the stock price of ORCL on 12th/December/2017?"
-# user_query = "What was the closing stock price of ORCL on 12th/December/2017? Give me just the price in dollars."
-user_query = "What is the highest price ORCL stock has touched till date?"
-
-# print(serper.run(user_query))
+# user_query = "What is the USD/GBP exchange rate?"
 
 tool_search = Tool(
     name="search",
     func=serper.run,
     description="Used for when we need to do an online search"
 )
-
-# print(tool_search.invoke(user_query))
 
 pushover_user = os.getenv("PUSHOVER_USER")
 pushover_token = os.getenv("PUSHOVER_TOKEN")
@@ -51,8 +44,6 @@ tool_push = Tool(
     func=push,
     description="Useful for when we want to send a push notification"
 )
-
-# tool_push.invoke("I am currently on Week-4 working up the LangChain/LangGraph/LangSmith!")
 
 ### ### [PHASE-1] Define the Graph
 
